@@ -27,7 +27,6 @@
         <th>Số lượng</th>
         <th>Giá bán</th>
         <th>Thành tiền</th>
-        <th>Ảnh sản phẩm</th>
         <th>remove</th>
       </tr>
     </thead>
@@ -35,13 +34,11 @@
       <?php
         foreach ($product_inCart as $key => $product) { ?>
         <tr>
-          <td><?= $product['product_code'] ?> </td>
-          <td><?= $product['product_name'] ?> </td>
-          <td><a href="" class="btn btn-primary">+</a> <?= $product['product_amount'] ?> <a href="" class="btn btn-primary">-</a> </td>
-          <td><?= number_format($product['product_price']) ?> </td>
-          <td><?= number_format($product['product_price']*$product['product_amount']) ?> </td>
-          <td> <img width="100px" height="100px" src="<?= $product['product_images'] ?>" alt=""> </td>
-          </td>
+          <td><?= $key ?> </td>
+          <td><?= $product['name'] ?> </td>
+          <td><a href="add_tocart.php?id=<?= $key ?>" class="btn btn-primary">+</a> <?= $product['gia'] ?> <a href="remove.php?id=<?= $key ?>" class="btn btn-primary">-</a> </td>
+          <td><?= number_format($product['gia']) ?> </td>
+          <td><?= number_format($product['gia']*$product['soluong']) ?> </td>
           <td><a href="remove_product.php?id=<?= $key ?>" class="btn btn-primary">Xóa khỏi giỏ hàng</a></td>
         </tr>
       <?php } ?>

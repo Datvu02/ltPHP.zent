@@ -1,9 +1,7 @@
 <?php
   session_start();
+  require('data.php');
 
-  if (isset($_SESSION['products'])) {
-    $products = $_SESSION['products'];
-  }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +22,9 @@
       <tr>
         <th>Mã sản phẩm</th>
         <th>Tên sản phẩm</th>
+        <th>Số lương</th>
         <th>Giá bán</th>
-        <th>Số lượng</th>
-        <th>Ảnh sản phẩm</th>
+        <!-- <th>Ảnh sản phẩm</th> -->
         <th>action</th>
       </tr>
     </thead>
@@ -34,11 +32,11 @@
       <?php
         foreach ($products as $key => $product) { ?>
         <tr>
-          <td><?= $product['product_code'] ?> </td>
-          <td><?= $product['product_name'] ?> </td>
-          <td><?= $product['product_price'] ?> </td>
-          <td><?= $product['product_amount'] ?> </td>
-          <td> <img width="100px" height="100px" src="<?= $product['product_images'] ?>" alt=""> </td>
+          <td><?= $key ?> </td>
+          <td><?= $product['name'] ?> </td>
+          <td><?= $product['soluong'] ?> </td>
+          <td><?= $product['gia'] ?> </td>
+          <!-- <td> <img width="100px" height="100px" src="<?= $product['product_images'] ?>" alt=""> </td> -->
           <td> <a href="add_tocart.php?id=<?= $key ?>" class="btn btn-primary">Thêm vào giỏ hàng</a> </td>
         </tr>
       <?php } ?>

@@ -6,5 +6,4 @@
   $_SESSION['products'][] = $login;
 
   header('location: indext.php');
-  sesson_destroy();
 ?>
